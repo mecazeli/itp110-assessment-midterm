@@ -1,0 +1,124 @@
+.admission-page {
+  background-color: #f8faf9;
+  font-family: "Poppins", sans-serif;
+  color: #1f2937;
+  min-height: 100vh;
+  padding: 60px 20px;
+}
+
+/* Container */
+.admission-container {
+  max-width: 950px;
+  margin: 0 auto;
+  background: #ffffff;
+  padding: 40px 30px;
+  border-radius: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+/* Section Title */
+.section-title {
+  color: #14532d;
+  text-align: center;
+  margin-bottom: 15px;
+  font-weight: 700;
+  font-size: 1.8rem;
+}
+
+.intro-text {
+  text-align: center;
+  color: #444;
+  margin-bottom: 40px;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Card Design */
+.admission-card {
+  background: #ffffff;
+  border-left: 8px solid #14532d;
+  border-radius: 15px;
+  padding: 25px 30px;
+  margin-bottom: 25px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.admission-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
+}
+
+.admission-card h3 {
+  color: #14532d;
+  margin-bottom: 15px;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+/* Lists */
+.admission-card ul,
+.admission-card ol {
+  margin-left: 20px;
+  color: #374151;
+  line-height: 1.6;
+}
+
+.admission-card li {
+  margin-bottom: 12px;
+}
+
+.admission-card em {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+/* Terms Box */
+.terms-box {
+  background: #ecfdf5;
+  border: 1px solid #b9e8c7;
+  border-radius: 10px;
+  padding: 15px;
+  text-align: center;
+  color: #14532d;
+  margin: 30px 0;
+  font-weight: 500;
+}
+
+/* Download Button */
+.download-area {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.download-area h4 {
+  color: #14532d;
+  margin-bottom: 15px;
+}
+
+.download-btn {
+  background-color: #14532d;
+  color: #ffffff;
+  padding: 12px 28px;
+  border-radius: 10px;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.download-btn:hover {
+  background-color: #0f3f22;
+  transform: translateY(-3px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .admission-card {
+    padding: 20px;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+  }
+}
