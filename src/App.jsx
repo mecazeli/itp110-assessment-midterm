@@ -5,9 +5,9 @@ import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Course from "./pages/Course";
+import Contact from "./pages/Contact";
 // import Admission from "./pages/Admission";
 // import Gallery from "./pages/Gallery";
-// import Contact from "./pages/Contact";
 
 const App = () => {
   return (
@@ -21,9 +21,9 @@ const App = () => {
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/course" element={<Course />} />
+            <Route path="/contact" element={<Contact />} />
             {/* <Route path="/admission" element={<Admission />} />
-            <Route path="/gallery" element={<Gallery />} />
-            <Route path="/contact" element={<Contact />} /> */}
+            <Route path="/gallery" element={<Gallery />} /> */}
           </Routes>
         </div>
 
