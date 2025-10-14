@@ -14,7 +14,7 @@ const Admission = () => {
 
         {/* Requirements */}
         <div className="admission-card">
-          <h3>📋 Initial Admission Requirements</h3>
+          <h3>Initial Admission Requirements</h3>
           <ul>
             <li>
               <strong>Application Form (PNC:SDAS-FO-34)</strong>
@@ -56,7 +56,7 @@ const Admission = () => {
 
         {/* Process */}
         <div className="admission-card">
-          <h3>🧭 Admission Process</h3>
+          <h3>Admission Process</h3>
           <ol>
             <li>
               Fill out the <strong>Online Pre-Registration Form</strong> on the
@@ -92,7 +92,7 @@ const Admission = () => {
             download
             className="download-btn"
           >
-            📄 Download Form
+             GENERATE PDF FORM
           </a>
         </div>
       </div>
