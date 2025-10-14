@@ -8,24 +8,24 @@ const Gallery = () => {
   const galleryData = {
     "20th CHAS Ceremony": {
       folder: "20th Capping, Pinning & Candle Lighting Ceremony",
-      images: ["c1.jpg", "c2.jpg", "c3.jpg", "c4.jpg", "c5.jpg"]
+      images: ["c1.jpg", "c2.jpg", "c3.jpg", "c4.jpg", "c5.jpg"],
     },
     "ARTSFEST 2025": {
       folder: "ARTSFEST 2025",
-      images: ["a1.jpg", "a2.jpg", "a3.jpg", "a4.jpg", "a5.jpg"]
+      images: ["a1.jpg", "a2.jpg", "a3.jpg", "a4.jpg", "a5.jpg"],
     },
     "Job Fair": {
       folder: "Job Fair",
-      images: ["jf1.jpg", "jf2.jpg", "jf3.jpg", "jf4.jpg", "jf5.jpg"]
+      images: ["jf1.jpg", "jf2.jpg", "jf3.jpg", "jf4.jpg", "jf5.jpg"],
     },
     "PNC 21st Graduation": {
       folder: "PNC 21st 𝐂𝐨𝐦𝐦𝐞𝐧𝐜𝐞𝐦𝐞𝐧𝐭 𝐂𝐞𝐫𝐞𝐦𝐨𝐧𝐲 2025",
-      images: ["g1.jpg", "g2.jpg", "g3.jpg", "g4.jpg", "g5.jpg"]
+      images: ["g1.jpg", "g2.jpg", "g3.jpg", "g4.jpg", "g5.jpg"],
     },
     "SPORTSFEST 2024": {
       folder: "SPORTSFEST 2024",
-      images: ["sp1.jpg", "sp2.jpg", "sp3.jpg", "sp4.jpg", "sp5.jpg"]
-    }
+      images: ["sp1.jpg", "sp2.jpg", "sp3.jpg", "sp4.jpg", "sp5.jpg"],
+    },
   };
 
   const categories = Object.keys(galleryData);
@@ -33,24 +33,22 @@ const Gallery = () => {
   // Get current images based on selected category
   const getCurrentImages = () => {
     if (selectedCategory === "all") {
-      // Return all images from all categories
       const allImages = [];
-      categories.forEach(category => {
-        galleryData[category].images.forEach(image => {
+      categories.forEach((category) => {
+        galleryData[category].images.forEach((image) => {
           allImages.push({
             src: `/Gallery/${galleryData[category].folder}/${image}`,
             alt: `${category} - ${image}`,
-            category: category
+            category: category,
           });
         });
       });
       return allImages;
     } else {
-      // Return images from selected category
-      return galleryData[selectedCategory].images.map(image => ({
+      return galleryData[selectedCategory].images.map((image) => ({
         src: `/Gallery/${galleryData[selectedCategory].folder}/${image}`,
         alt: `${selectedCategory} - ${image}`,
-        category: selectedCategory
+        category: selectedCategory,
       }));
     }
   };
@@ -67,7 +65,9 @@ const Gallery = () => {
   };
 
   const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + currentImages.length) % currentImages.length);
+    setCurrentSlide(
+      (prev) => (prev - 1 + currentImages.length) % currentImages.length
+    );
   };
 
   const goToSlide = (index) => {
@@ -75,11 +75,16 @@ const Gallery = () => {
   };
 
   return (
-    <div className="container-fluid py-5" style={{ backgroundColor: "#f8f9fa" }}>
+    <div
+      className="container-fluid py-5"
+      style={{ backgroundColor: "#f8f9fa" }}
+    >
       <div className="container">
         {/* Header */}
         <div className="text-center mb-5">
-          <h1 className="display-4 fw-bold text-dark mb-3">PNC Events Gallery</h1>
+          <h1 className="display-4 fw-bold text-dark mb-3">
+            PNC Events Gallery
+          </h1>
           <p className="lead text-muted">
             Explore collection of memorable events and celebrations
           </p>
@@ -87,7 +92,7 @@ const Gallery = () => {
 
         {/* Carousel */}
         {currentImages.length > 0 && (
-          <div className="row justify-content-center">
+          <div className="row justify-content-center mb-5">
             <div className="col-lg-10">
               <div
                 id="galleryCarousel"
@@ -115,16 +120,18 @@ const Gallery = () => {
                   {currentImages.map((image, index) => (
                     <div
                       key={index}
-                      className={`carousel-item ${index === currentSlide ? "active" : ""}`}
+                      className={`carousel-item ${
+                        index === currentSlide ? "active" : ""
+                      }`}
                     >
                       <img
                         src={image.src}
                         className="d-block w-100 rounded shadow-lg"
                         alt={image.alt}
-                        style={{ 
-                          height: "500px", 
+                        style={{
+                          height: "500px",
                           objectFit: "cover",
-                          maxHeight: "70vh"
+                          maxHeight: "70vh",
                         }}
                         loading="lazy"
                       />
@@ -144,7 +151,10 @@ const Gallery = () => {
                   data-bs-slide="prev"
                   onClick={prevSlide}
                 >
-                  <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span
+                    className="carousel-control-prev-icon"
+                    aria-hidden="true"
+                  ></span>
                   <span className="visually-hidden">Previous</span>
                 </button>
                 <button
@@ -154,7 +164,10 @@ const Gallery = () => {
                   data-bs-slide="next"
                   onClick={nextSlide}
                 >
-                  <span className="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span
+                    className="carousel-control-next-icon"
+                    aria-hidden="true"
+                  ></span>
                   <span className="visually-hidden">Next</span>
                 </button>
               </div>
@@ -163,16 +176,19 @@ const Gallery = () => {
         )}
 
         {/* Filter Categories */}
-        <div className="row mt-4">
+        <div className="row mt-4 mb-5">
           <div className="col-12">
             <div className="d-flex flex-wrap justify-content-center gap-2">
               <button
-                className={`btn ${selectedCategory === "all" ? "" : "btn-outline-success"}`}
+                className={`btn ${
+                  selectedCategory === "all" ? "" : "btn-outline-success"
+                }`}
                 style={{
-                  backgroundColor: selectedCategory === "all" ? "#14532d" : "transparent",
+                  backgroundColor:
+                    selectedCategory === "all" ? "#14532d" : "transparent",
                   color: selectedCategory === "all" ? "white" : "#14532d",
                   borderColor: "#14532d",
-                  borderWidth: "2px"
+                  borderWidth: "2px",
                 }}
                 onClick={() => setSelectedCategory("all")}
               >
@@ -181,12 +197,15 @@ const Gallery = () => {
               {categories.map((category) => (
                 <button
                   key={category}
-                  className={`btn ${selectedCategory === category ? "" : "btn-outline-success"}`}
+                  className={`btn ${
+                    selectedCategory === category ? "" : "btn-outline-success"
+                  }`}
                   style={{
-                    backgroundColor: selectedCategory === category ? "#14532d" : "transparent",
+                    backgroundColor:
+                      selectedCategory === category ? "#14532d" : "transparent",
                     color: selectedCategory === category ? "white" : "#14532d",
                     borderColor: "#14532d",
-                    borderWidth: "2px"
+                    borderWidth: "2px",
                   }}
                   onClick={() => setSelectedCategory(category)}
                 >
@@ -197,6 +216,114 @@ const Gallery = () => {
           </div>
         </div>
 
+        {/* Gallery Grid */}
+        <div className="row g-4 justify-content-center">
+          <div className="col-12 col-sm-6 col-md-4">
+            <div className="card text-center shadow-sm border-success border-opacity-50">
+              <div style={{ overflow: "hidden", height: "300px" }}>
+                <img
+                  src="../../public/Pamantasan.jpg"
+                  alt="Campus Life"
+                  className="w-100 h-100"
+                  style={{ objectFit: "cover" }}
+                />
+              </div>
+              <div className="card-body">
+                <h5 className="card-title fw-bold text-success">
+                  Pamantasan ng Cabuyao
+                </h5>
+              </div>
+            </div>
+          </div>
+
+          <div className="col-12 col-sm-6 col-md-4">
+            <div className="card text-center shadow-sm border-success border-opacity-50">
+              <div style={{ overflow: "hidden", height: "300px" }}>
+                <img
+                  src="../../public/Gallery/ARTSFEST 2025/a5.jpg"
+                  alt="Events"
+                  className="w-100 h-100"
+                  style={{ objectFit: "cover" }}
+                />
+              </div>
+              <div className="card-body">
+                <h5 className="card-title fw-bold text-success">
+                  ARTSFEST 2025
+                </h5>
+              </div>
+            </div>
+          </div>
+
+          <div className="col-12 col-sm-6 col-md-4">
+            <div className="card text-center shadow-sm border-success border-opacity-50">
+              <div style={{ overflow: "hidden", height: "300px" }}>
+                <img
+                  src="../../public/bch.jpg"
+                  alt="Facilities"
+                  className="w-100 h-100"
+                  style={{ objectFit: "cover" }}
+                />
+              </div>
+              <div className="card-body">
+                <h5 className="card-title fw-bold text-success">
+                  Bagong Cabuyao Hall
+                </h5>
+              </div>
+            </div>
+          </div>
+
+          <div className="col-12 col-sm-6 col-md-4">
+            <div className="card text-center shadow-sm border-success border-opacity-50">
+              <div style={{ overflow: "hidden", height: "300px" }}>
+                <img
+                  src="../../public/Gallery/SPORTSFEST 2024/sp3.jpg"
+                  alt="Sports"
+                  className="w-100 h-100"
+                  style={{ objectFit: "cover" }}
+                />
+              </div>
+              <div className="card-body">
+                <h5 className="card-title fw-bold text-success">SPORTFEST</h5>
+              </div>
+            </div>
+          </div>
+
+          <div className="col-12 col-sm-6 col-md-4">
+            <div className="card text-center shadow-sm border-success border-opacity-50">
+              <div style={{ overflow: "hidden", height: "300px" }}>
+                <img
+                  src="../../public/Gallery/PNC 21st 𝐂𝐨𝐦𝐦𝐞𝐧𝐜𝐞𝐦𝐞𝐧𝐭 𝐂𝐞𝐫𝐞𝐦𝐨𝐧𝐲 2025/g1.jpg"
+                  alt="Library"
+                  className="w-100 h-100"
+                  style={{ objectFit: "cover" }}
+                />
+              </div>
+              <div className="card-body">
+                <h5 className="card-title fw-bold text-success">
+                  PNC Graduation
+                </h5>
+              </div>
+            </div>
+          </div>
+
+          <div className="col-12 col-sm-6 col-md-4">
+            <div className="card text-center shadow-sm border-success border-opacity-50">
+              <div style={{ overflow: "hidden", height: "300px" }}>
+                <img
+                  src="../../public/uniform.jpg"
+                  alt="Students"
+                  className="w-100 h-100"
+                  style={{ objectFit: "cover" }}
+                />
+              </div>
+              <div className="card-body">
+                <h5 className="card-title fw-bold text-success">
+                  Students Uniform
+                </h5>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
