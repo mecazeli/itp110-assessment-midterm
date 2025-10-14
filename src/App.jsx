@@ -7,7 +7,7 @@ import Gallery from "./pages/Gallery";
 import About from "./pages/About";
 import Course from "./pages/Course";
 import Contact from "./pages/Contact";
-// import Admission from "./pages/Admission";
+import Admission from "./pages/Admission";
 
 const App = () => {
   return (
@@ -23,7 +23,7 @@ const App = () => {
             <Route path="/about" element={<About />} />
             <Route path="/course" element={<Course />} />
             <Route path="/contact" element={<Contact />} />
-            {/* <Route path="/admission" element={<Admission />} /> */}
+            <Route path="/admission" element={<Admission />} /> 
           </Routes>
         </div>
 
