@@ -53,7 +53,10 @@ const colleges = [
 
 const Course = () => (
   <div className="course-container">
-    <h1 className="course-title">🎓 College Degree Programs Offered</h1>
+    <div className="text-center mb-5">
+      <h1 className="display-4 fw-bold text-success mb-3">Programs Offered</h1>
+      <div className="header-line mx-auto"></div>
+    </div>
 
     <div className="college-grid">
       {colleges.map((college, idx) => (
@@ -62,7 +65,9 @@ const Course = () => (
             <img
               src={college.img}
               alt={college.name}
-              onError={(e) => (e.target.src = "https://via.placeholder.com/120")}
+              onError={(e) =>
+                (e.target.src = "https://via.placeholder.com/120")
+              }
             />
           </div>
           <div className="college-info">
